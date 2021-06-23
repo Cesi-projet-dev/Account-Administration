@@ -18,6 +18,8 @@ namespace Ces_it.VIEW.INTERFACE
             InitializeComponent();
         }
 
+        // --> All the Event about the Active form
+        #region WindowsEvent
         private void SetttingsPage_Load(object sender, EventArgs e)
         {
 
@@ -68,5 +70,8 @@ namespace Ces_it.VIEW.INTERFACE
         {
             WindowState = FormWindowState.Minimized;
         }
+        #endregion   
+
+
     }
 }

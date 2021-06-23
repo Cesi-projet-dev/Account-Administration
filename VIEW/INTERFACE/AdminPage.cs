@@ -18,6 +18,7 @@ namespace Ces_it.VIEW.INTERFACE
             InitializeComponent();
         }
 
+        // --> All the Event about the Active form
         #region WindowsEvents
 
         /// <summary>

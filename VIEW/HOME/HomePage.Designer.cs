@@ -41,6 +41,7 @@ namespace Ces_it.VIEW.HOME
             this.HidePw_CheckBox = new System.Windows.Forms.CheckBox();
             this.Connection_Button = new System.Windows.Forms.Button();
             this.Settings_PictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Closed_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Refresh_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reduce_PictureBox)).BeginInit();
@@ -167,6 +168,16 @@ namespace Ces_it.VIEW.HOME
             this.Settings_PictureBox.TabStop = false;
             this.Settings_PictureBox.Click += new System.EventHandler(this.Settings_PictureBox_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 78);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
@@ -174,6 +185,7 @@ namespace Ces_it.VIEW.HOME
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(544, 393);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Settings_PictureBox);
             this.Controls.Add(this.Connection_Button);
             this.Controls.Add(this.HidePw_CheckBox);
@@ -214,5 +226,6 @@ namespace Ces_it.VIEW.HOME
         private System.Windows.Forms.CheckBox HidePw_CheckBox;
         private System.Windows.Forms.Button Connection_Button;
         private System.Windows.Forms.PictureBox Settings_PictureBox;
+        private System.Windows.Forms.Button button1;
     }
 }

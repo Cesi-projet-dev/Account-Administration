@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="MODEL\" />
-    <Folder Include="CONTROLLER\" />
   </ItemGroup>
 
   <ItemGroup>

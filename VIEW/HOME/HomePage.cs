@@ -10,9 +10,17 @@ namespace Ces_it.VIEW.HOME
 {
     public partial class HomePage : Form
     {
+        // VARIABLE DECLARATION --> 
         private const int WM_NCHITTEST = 0x0084;
         private const int HTCLIENT = 1;
         private const int HTCAPTION = 2;
+
+        // CONTROLLER DECLARATION --> 
+        private readonly CONTROLLER.LogController logClassControl = new CONTROLLER.LogController();
+
+
+        // CODE PAGE --> 
+
         public HomePage()
         {
             InitializeComponent();
@@ -135,6 +143,16 @@ namespace Ces_it.VIEW.HOME
             }
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (logClassControl.CheckFileLog() == true)
+            {
+                MessageBox.Show("DOSSIER EXISTANT");
+            }
+            else
+            {
+                MessageBox.Show("DOSSIER NO EXISTANT");
+            }
+        }
     }
 }
