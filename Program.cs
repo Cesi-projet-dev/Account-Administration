@@ -17,7 +17,7 @@ namespace Ces_it
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new VIEW.HOME.HomePage());
         }
     }
 }

@@ -7,4 +7,10 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="MODEL\" />
+    <Folder Include="CONTROLLER\" />
+    <Folder Include="VIEW\INTERFACE\" />
+  </ItemGroup>
+
 </Project>
