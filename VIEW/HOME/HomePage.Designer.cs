@@ -40,9 +40,11 @@ namespace Ces_it.VIEW.HOME
             this.Password_Label = new System.Windows.Forms.Label();
             this.HidePw_CheckBox = new System.Windows.Forms.CheckBox();
             this.Connection_Button = new System.Windows.Forms.Button();
+            this.Settings_PictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Closed_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Refresh_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reduce_PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Settings_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Closed_PictureBox
@@ -154,6 +156,17 @@ namespace Ces_it.VIEW.HOME
             this.Connection_Button.UseVisualStyleBackColor = false;
             this.Connection_Button.Click += new System.EventHandler(this.Connection_Button_Click);
             // 
+            // Settings_PictureBox
+            // 
+            this.Settings_PictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.Settings_PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Settings_PictureBox.Image")));
+            this.Settings_PictureBox.Location = new System.Drawing.Point(12, 12);
+            this.Settings_PictureBox.Name = "Settings_PictureBox";
+            this.Settings_PictureBox.Size = new System.Drawing.Size(26, 26);
+            this.Settings_PictureBox.TabIndex = 10;
+            this.Settings_PictureBox.TabStop = false;
+            this.Settings_PictureBox.Click += new System.EventHandler(this.Settings_PictureBox_Click);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
@@ -161,6 +174,7 @@ namespace Ces_it.VIEW.HOME
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(544, 393);
+            this.Controls.Add(this.Settings_PictureBox);
             this.Controls.Add(this.Connection_Button);
             this.Controls.Add(this.HidePw_CheckBox);
             this.Controls.Add(this.Password_Label);
@@ -173,6 +187,7 @@ namespace Ces_it.VIEW.HOME
             this.Controls.Add(this.Closed_PictureBox);
             this.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomePage";
@@ -180,6 +195,7 @@ namespace Ces_it.VIEW.HOME
             ((System.ComponentModel.ISupportInitialize)(this.Closed_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Refresh_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reduce_PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Settings_PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +213,6 @@ namespace Ces_it.VIEW.HOME
         private System.Windows.Forms.Label Password_Label;
         private System.Windows.Forms.CheckBox HidePw_CheckBox;
         private System.Windows.Forms.Button Connection_Button;
+        private System.Windows.Forms.PictureBox Settings_PictureBox;
     }
 }
