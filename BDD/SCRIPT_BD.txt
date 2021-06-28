@@ -1,0 +1,33 @@
+CREATE TABLE TB_TYPE(
+    ID         int PRIMARY KEY,
+    TYPE     Varchar(20) NOT NULL
+);
+
+CREATE TABLE TB_DEPARTEMENT(
+    ID         int PRIMARY KEY,
+    Name     Varchar(50) NOT NULL,
+    Region     Varchar(40) NOT NULL
+);
+
+CREATE TABLE TB_CITY(
+    ID                 int PRIMARY KEY,
+    Code_Postal     Varchar(6) NOT NULL,
+    Name            Varchar(50) NOT NULL,
+    Departement     int,
+    FOREIGN KEY(Departement) REFERENCES TB_DEPARTEMENT(ID)
+);
+
+CREATE TABLE TB_USER(
+    ID             int PRIMARY KEY,
+    Credential    int NOT NULL,
+    Login         Varchar(30) NOT NULL,
+    Password     Varchar(88) NOT NULL,
+    Email         Varchar(50) NOT NULL,
+    Phone        Varchar(15) NOT NULL,
+    City        int NOT NULL,
+    Adress        Varchar(50) NOT NULL,
+    LastLogin    Date NOT NULL,
+    FirstLogin    Date NOT NULL,
+    FOREIGN KEY(Credential) REFERENCES TB_TYPE(ID),
+    FOREIGN KEY(City) REFERENCES TB_CITY(ID)
+);

@@ -17,6 +17,8 @@ namespace Ces_it.VIEW.HOME
 
         // CONTROLLER DECLARATION --> 
         private readonly CONTROLLER.LogController logClassControl = new CONTROLLER.LogController();
+        private readonly CONTROLLER.DataBase.ConnectionController connectClassControl = new CONTROLLER.DataBase.ConnectionController();
+        private readonly CONTROLLER.User.UserController userClassControl = new CONTROLLER.User.UserController();
 
 
         // CODE PAGE --> 
@@ -87,7 +89,7 @@ namespace Ces_it.VIEW.HOME
         private void Closed_PictureBox_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            logClassControl.WriteLog("[SUCCESS] -[HomePage] -[Closed_PictureBox_Click] : SOFTWARE CLOSED ");
+            logClassControl.WriteLog("                                                                        --- SOFTWARE CLOSED AT : " + DateTime.Now.ToString() + " ---\n \n");
         }
 
         /// <summary>
@@ -114,11 +116,20 @@ namespace Ces_it.VIEW.HOME
         /// <param name="e"></param>
         private void Settings_PictureBox_Click(object sender, EventArgs e)
         {
-            INTERFACE.SetttingsPage settingsForm = new INTERFACE.SetttingsPage
+            try
             {
+                INTERFACE.SetttingsPage settingsForm = new INTERFACE.SetttingsPage
+                {
 
-            };
-            settingsForm.Show();
+                };
+                settingsForm.Show();
+                logClassControl.WriteLog("[SUCCESS]-[HomePage]-[Settings_PictureBox_Click]-[TRY] : ");
+            }
+            catch (Exception catchErrorOpenSettings)
+            {
+                logClassControl.WriteLog("[ERROR]-[HomePage]-[Settings_PictureBox_Click]-[CATCH] : " + catchErrorOpenSettings);
+            }
+            
            
         }
         #endregion
@@ -131,20 +142,54 @@ namespace Ces_it.VIEW.HOME
         /// <param name="e"></param>
         private void Connection_Button_Click(object sender, EventArgs e)
         {
-            try
+            if ( connectClassControl.TryConnect(User_TextBox.Text,Password_TextBox.Text) == true ) // Check if the User can be connected to the SoftWare
             {
-                INTERFACE.AdminPage adminForm = new INTERFACE.AdminPage
+                switch ( userClassControl.GetCredential(User_TextBox.Text, Password_TextBox.Text)) // Switch used to show the interface according to the user's role
                 {
+                    case 1: // ADMIN INTERFACE /----/
+                        MessageBox.Show("ADMIN CONNEXION");
+                        try
+                        {
+                            INTERFACE.AdminPage adminForm = new INTERFACE.AdminPage
+                            {
 
-                };
-                adminForm.Show();
-                logClassControl.WriteLog("[SUCCESS]-[HomePage]-[Connection_Button_Click]-[TRY] : ");
+                            };
+                            adminForm.Show();
+                            logClassControl.WriteLog("[SUCCESS]-[HomePage]-[Connection_Button_Click]-[TRY] : " + User_TextBox.Text + " : ");
+                        }
+                        catch (Exception catchErrorOpenInterface)
+                        {
+                            logClassControl.WriteLog("[ERROR]-[HomePage]-[Connection_Button_Click]-[CATCH] : " + User_TextBox.Text + " : ERROR : " + catchErrorOpenInterface);
+                        }
+                        MessageBox.Show("CONNECTED");
+                        break;
+                    case 2:// COMMERCIAL INTERFACE /----/
+                        MessageBox.Show("COMMERCIAL CONNEXION");
+                        break;
+                    case 3:// LIVREUR INTERFACE /----/
+                        MessageBox.Show("LIVREUR CONNEXION");
+                        break;
+                    case 4:// RESTAURATEUR INTERFACE /----/
+                        MessageBox.Show("RESTAURATEUR CONNEXION");
+                        break;
+                    case 5:// CLIENT INTERFACE /----/
+                        MessageBox.Show("CLIENT CONNEXION");
+                        break;
+                    default:
+                        MessageBox.Show("ERREUR CONNEXION");
+                        break;
 
+                        
+                }
+                User_TextBox.Clear();
+                Password_TextBox.Clear();
             }
-            catch ( Exception catchErrorOpenInterface )
+            else
             {
-                logClassControl.WriteLog("[ERROR]-[HomePage]-[Connection_Button_Click]-[CATCH] : " + catchErrorOpenInterface);
+                logClassControl.WriteLog("[ERROR]-[HomePage]-[Connection_Button_Click]-[ELSE] : " + User_TextBox.Text + " : ERROR : " );
+                MessageBox.Show("ERROR");
             }
+            
         }
 
        
