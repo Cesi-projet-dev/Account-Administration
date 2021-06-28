@@ -89,7 +89,7 @@ namespace Ces_it.VIEW.HOME
         private void Closed_PictureBox_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            logClassControl.WriteLog("                                                                        --- SOFTWARE CLOSED AT : " + DateTime.Now.ToString() + " ---\n \n");
+            logClassControl.WriteLog("                                                                        --- SOFTWARE CLOSED AT : " + DateTime.Now.ToString() + " ---");
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace Ces_it.VIEW.HOME
 
         /// <summary>
         /// Used to connect to an interface
-        /// </summary>
+        /// </summary>S
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Connection_Button_Click(object sender, EventArgs e)

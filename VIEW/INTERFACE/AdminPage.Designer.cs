@@ -35,9 +35,11 @@ namespace Ces_it.VIEW.INTERFACE
             this.Closed_PictureBox = new System.Windows.Forms.PictureBox();
             this.Title_label = new System.Windows.Forms.Label();
             this.Title2_label = new System.Windows.Forms.Label();
+            this.User_DataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Reduce_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Refresh_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Closed_PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.User_DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Reduce_PictureBox
@@ -95,6 +97,21 @@ namespace Ces_it.VIEW.INTERFACE
             this.Title2_label.TabIndex = 7;
             this.Title2_label.Text = "Page d\'administration et de gestion des comptes";
             // 
+            // User_DataGridView
+            // 
+            this.User_DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.User_DataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.User_DataGridView.Location = new System.Drawing.Point(79, 114);
+            this.User_DataGridView.Name = "User_DataGridView";
+            this.User_DataGridView.ReadOnly = true;
+            this.User_DataGridView.RowHeadersVisible = false;
+            this.User_DataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.User_DataGridView.RowTemplate.Height = 25;
+            this.User_DataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.User_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.User_DataGridView.Size = new System.Drawing.Size(802, 379);
+            this.User_DataGridView.TabIndex = 8;
+            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
@@ -102,6 +119,7 @@ namespace Ces_it.VIEW.INTERFACE
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(983, 567);
+            this.Controls.Add(this.User_DataGridView);
             this.Controls.Add(this.Title2_label);
             this.Controls.Add(this.Title_label);
             this.Controls.Add(this.Reduce_PictureBox);
@@ -117,6 +135,7 @@ namespace Ces_it.VIEW.INTERFACE
             ((System.ComponentModel.ISupportInitialize)(this.Reduce_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Refresh_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Closed_PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.User_DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +148,6 @@ namespace Ces_it.VIEW.INTERFACE
         private System.Windows.Forms.PictureBox Closed_PictureBox;
         private System.Windows.Forms.Label Title_label;
         private System.Windows.Forms.Label Title2_label;
+        private System.Windows.Forms.DataGridView User_DataGridView;
     }
 }

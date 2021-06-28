@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,17 @@ namespace Ces_it.VIEW.INTERFACE
 {
     public partial class AdminPage : Form
     {
+        // VARIABLE DECLARATION --> 
         private const int WM_NCHITTEST = 0x0084;
         private const int HTCLIENT = 1;
         private const int HTCAPTION = 2;
+
+        // CONTROLLER DECLARATION --> 
+        private readonly CONTROLLER.LogController logClassControl = new CONTROLLER.LogController();
+        private readonly CONTROLLER.DataBase.ConnectionController connectClassControl = new CONTROLLER.DataBase.ConnectionController();
+        private readonly CONTROLLER.User.UserController userClassControl = new CONTROLLER.User.UserController();
+        private readonly CONTROLLER.Design.DesignInterfaceController designClassControl = new CONTROLLER.Design.DesignInterfaceController();
+   
         public AdminPage()
         {
             InitializeComponent();
@@ -44,6 +53,10 @@ namespace Ces_it.VIEW.INTERFACE
         /// <param name="e"></param>
         private void AdminPage_Load(object sender, EventArgs e)
         {
+            DataTable dtRecordColumn = new DataTable();
+            designClassControl.ListFillDataGrid().Fill(dtRecordColumn);
+            User_DataGridView.DataSource = dtRecordColumn;
+
 
         }
 
