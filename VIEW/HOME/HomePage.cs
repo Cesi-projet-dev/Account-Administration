@@ -53,6 +53,9 @@ namespace Ces_it.VIEW.HOME
         private void HomePage_Load(object sender, EventArgs e)
         {
             Password_TextBox.UseSystemPasswordChar = true;
+
+            logClassControl.CheckFileLog();
+
         }
 
         /// <summary>
@@ -84,6 +87,7 @@ namespace Ces_it.VIEW.HOME
         private void Closed_PictureBox_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            logClassControl.WriteLog("[SUCCESS] -[HomePage] -[Closed_PictureBox_Click] : SOFTWARE CLOSED ");
         }
 
         /// <summary>
@@ -134,25 +138,15 @@ namespace Ces_it.VIEW.HOME
 
                 };
                 adminForm.Show();
-                
+                logClassControl.WriteLog("[SUCCESS]-[HomePage]-[Connection_Button_Click]-[TRY] : ");
 
             }
-            catch
+            catch ( Exception catchErrorOpenInterface )
             {
-
+                logClassControl.WriteLog("[ERROR]-[HomePage]-[Connection_Button_Click]-[CATCH] : " + catchErrorOpenInterface);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (logClassControl.CheckFileLog() == true)
-            {
-                MessageBox.Show("DOSSIER EXISTANT");
-            }
-            else
-            {
-                MessageBox.Show("DOSSIER NO EXISTANT");
-            }
-        }
+       
     }
 }
