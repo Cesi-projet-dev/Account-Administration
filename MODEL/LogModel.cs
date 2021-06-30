@@ -12,7 +12,7 @@ namespace Ces_it.MODEL
         /// <returns></returns>
         public string FilePath()
         {
-            string pathFile = @"..\Log\Log.txt";
+            const string pathFile = @"..\Log\Log.txt";
 
             return pathFile;
         }
@@ -23,7 +23,7 @@ namespace Ces_it.MODEL
         /// <returns></returns>
         public string FileDirectory()
         {
-            string pathDirectrory = @"..\Log";
+            const string pathDirectrory = @"..\Log";
 
             return pathDirectrory;
         }

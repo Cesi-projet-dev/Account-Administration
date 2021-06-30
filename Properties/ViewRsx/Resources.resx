@@ -117,4 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ErrorConnectionHomePage" xml:space="preserve">
+    <value>[ERROR]-[HomePage]-[Connection_Button_Click]-[CATCH] :</value>
+  </data>
+  <data name="ErrorSwitchCaseConnection" xml:space="preserve">
+    <value>[ERROR]-[HomePage]-[Connection_Button_Click]-[ELSE]-[SWITCH/CASE] :</value>
+  </data>
+  <data name="NameInterfaceAdmin" xml:space="preserve">
+    <value>INTERFACE ADMIN</value>
+  </data>
+  <data name="NameInterfaceClient" xml:space="preserve">
+    <value>INTERFACE CLIENT </value>
+  </data>
+  <data name="NameInterfaceCommercial" xml:space="preserve">
+    <value>INTERFACE COMMERCIAL</value>
+  </data>
+  <data name="NameInterfaceLivreur" xml:space="preserve">
+    <value>INTERFACE LIVREUR</value>
+  </data>
+  <data name="NameInterfaceRestaurateur" xml:space="preserve">
+    <value>INTERFACE RESTAURATEUR</value>
+  </data>
+  <data name="NameTypeAdminConnexion" xml:space="preserve">
+    <value>ADMIN CONNEXION</value>
+  </data>
+  <data name="SucessHomePageConnectionAdminLog" xml:space="preserve">
+    <value>[SUCCESS]-[HomePage]-[Connection_Button_Click]-[TRY]-[ADMIN_INTERFACE_OPEN] :</value>
+  </data>
+  <data name="SucessHomePageConnectionCommercialLog" xml:space="preserve">
+    <value>[SUCCESS]-[HomePage]-[Connection_Button_Click]-[TRY]-[COMMERCIAL_INTERFACE_OPEN] :</value>
+  </data>
 </root>

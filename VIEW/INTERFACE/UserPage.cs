@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,27 +8,28 @@ using System.Windows.Forms;
 
 namespace Ces_it.VIEW.INTERFACE
 {
-    public partial class AdminPage : Form
+    public partial class UserPage : Form
     {
         // VARIABLE DECLARATION --> 
         private const int WmNchittest = 0x0084;
         private const int Htclient = 1;
         private const int Htcaption = 2;
-        public string typeInterface;
+        public string IdUser;
 
         // CONTROLLER DECLARATION --> 
         private readonly CONTROLLER.LogController _logClassControl = new CONTROLLER.LogController();
         private readonly CONTROLLER.DataBase.ConnectionController _connectClassControl = new CONTROLLER.DataBase.ConnectionController();
         private readonly CONTROLLER.User.UserController _userClassControl = new CONTROLLER.User.UserController();
         private readonly CONTROLLER.Design.DesignInterfaceController _designClassControl = new CONTROLLER.Design.DesignInterfaceController();
-   
-        public AdminPage()
+
+
+        /// <summary>
+        /// Loading component
+        /// </summary>
+        public UserPage()
         {
             InitializeComponent();
         }
-
-        // --> All the Event about the Active form
-        #region WindowsEvents
 
         /// <summary>
         /// Move the Active Form
@@ -46,34 +46,34 @@ namespace Ces_it.VIEW.INTERFACE
         }
 
         /// <summary>
-        /// All action used while the form is loading
+        /// Function used when the form is loading ( Design and show data ) 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AdminPage_Load(object sender, EventArgs e)
+        private void UserPage_Load(object sender, EventArgs e)
         {
-            // Design 
-            TypeInterface_Label.Text = typeInterface.ToString();
 
-            // Show Data In DGV
-            var dtRecordColumn = new DataTable();
-            _designClassControl.ListFillDataGrid().Fill(dtRecordColumn);
-            User_DataGridView.DataSource = dtRecordColumn;
-            User_DataGridView.Columns["ID"].Visible = false;
+            TitleName_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item1.ToString();
+            TitleSurname_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item2.ToString();
+            TitleEmail_Name.Text += " " + _userClassControl.GetInfoUser(IdUser).Item3.ToString();
+            TitlePhone_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item4.ToString();
+            TitleAge_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item5.ToString();
+            TitleAdress_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item6.ToString();
+            LastLoginTile_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item7.ToString();
+
+            DataTable dt = new DataTable();
+            _designClassControl.AdapterFillComboBox().Fill(dt);
+
+            //Insert the Default Item to DataTable.
+            DataRow row = dt.NewRow();
+            row[0] = _userClassControl.GetValueDefaultComboBox(IdUser);
+            dt.Rows.InsertAt(row, 0);
+
+            Credential_ComboBox.DataSource = dt;
+            Credential_ComboBox.DisplayMember = "TYPE";
+            Credential_ComboBox.ValueMember = "TYPE";
 
 
-
-
-        }
-
-        /// <summary>
-        /// Function used to close this window
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Closed_PictureBox_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
 
         /// <summary>
@@ -96,23 +96,14 @@ namespace Ces_it.VIEW.INTERFACE
             WindowState = FormWindowState.Minimized;
         }
 
-
-        #endregion
-
-        private void User_DataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        /// <summary>
+        /// Function used to close this window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Closed_PictureBox_Click(object sender, EventArgs e)
         {
-            UserPage userPage = new UserPage
-            {
-                IdUser = User_DataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString()
-
-            };
-            userPage.Show();
-         
-        }
-        private void Role_ContextMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("TEST : " );
+            Dispose();
         }
     }
-    
 }

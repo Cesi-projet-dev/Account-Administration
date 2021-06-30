@@ -10,9 +10,9 @@ namespace Ces_it.VIEW.INTERFACE
 {
     public partial class SetttingsPage : Form
     {
-        private const int WM_NCHITTEST = 0x0084;
-        private const int HTCLIENT = 1;
-        private const int HTCAPTION = 2;
+        private const int WmNchittest = 0x0084;
+        private const int Htclient = 1;
+        private const int Htcaption = 2;
         public SetttingsPage()
         {
             InitializeComponent();
@@ -32,12 +32,10 @@ namespace Ces_it.VIEW.INTERFACE
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST)
+            if (m.Msg != WmNchittest) return;
+            if (m.Result == (IntPtr)Htclient)
             {
-                if (m.Result == (IntPtr)HTCLIENT)
-                {
-                    m.Result = (IntPtr)HTCAPTION;
-                }
+                m.Result = (IntPtr)Htcaption;
             }
         }
 
@@ -48,7 +46,7 @@ namespace Ces_it.VIEW.INTERFACE
         /// <param name="e"></param>
         private void Closed_PictureBox_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
         }
 
         /// <summary>
@@ -58,7 +56,7 @@ namespace Ces_it.VIEW.INTERFACE
         /// <param name="e"></param>
         private void Refresh_PictureBox_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            Refresh();
         }
 
         /// <summary>

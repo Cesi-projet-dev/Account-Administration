@@ -148,7 +148,7 @@ namespace Ces_it.VIEW.HOME
             this.Connection_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Connection_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Connection_Button.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Connection_Button.Location = new System.Drawing.Point(214, 320);
+            this.Connection_Button.Location = new System.Drawing.Point(214, 316);
             this.Connection_Button.Name = "Connection_Button";
             this.Connection_Button.Size = new System.Drawing.Size(106, 25);
             this.Connection_Button.TabIndex = 9;

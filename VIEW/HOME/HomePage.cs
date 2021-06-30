@@ -5,24 +5,28 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Ces_it.Properties;
 
 namespace Ces_it.VIEW.HOME
 {
     public partial class HomePage : Form
     {
         // VARIABLE DECLARATION --> 
-        private const int WM_NCHITTEST = 0x0084;
-        private const int HTCLIENT = 1;
-        private const int HTCAPTION = 2;
+        private const int WmNchittest = 0x0084;
+        private const int Htclient = 1;
+        private const int Htcaption = 2;
 
         // CONTROLLER DECLARATION --> 
-        private readonly CONTROLLER.LogController logClassControl = new CONTROLLER.LogController();
-        private readonly CONTROLLER.DataBase.ConnectionController connectClassControl = new CONTROLLER.DataBase.ConnectionController();
-        private readonly CONTROLLER.User.UserController userClassControl = new CONTROLLER.User.UserController();
+        private readonly CONTROLLER.LogController _logClassControl = new CONTROLLER.LogController();
+        private readonly CONTROLLER.DataBase.ConnectionController _connectClassControl = new CONTROLLER.DataBase.ConnectionController();
+        private readonly CONTROLLER.User.UserController _userClassControl = new CONTROLLER.User.UserController();
 
 
         // CODE PAGE --> 
 
+        /// <summary>
+        /// Loading component of HomePage
+        /// </summary>
         public HomePage()
         {
             InitializeComponent();
@@ -38,12 +42,10 @@ namespace Ces_it.VIEW.HOME
         protected override void WndProc( ref Message m )
         {
             base.WndProc(ref m );
-            if ( m.Msg == WM_NCHITTEST )
+            if (m.Msg != WmNchittest) return;
+            if ( m.Result == (IntPtr )Htclient )
             {
-                if ( m.Result == (IntPtr )HTCLIENT )
-                {
-                    m.Result = (IntPtr )HTCAPTION;
-                }
+                m.Result = (IntPtr )Htcaption;
             }
         }
 
@@ -56,7 +58,7 @@ namespace Ces_it.VIEW.HOME
         {
             Password_TextBox.UseSystemPasswordChar = true;
 
-            logClassControl.CheckFileLog();
+            _logClassControl.CheckFileLog();
 
         }
 
@@ -89,7 +91,7 @@ namespace Ces_it.VIEW.HOME
         private void Closed_PictureBox_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            logClassControl.WriteLog("                                                                        --- SOFTWARE CLOSED AT : " + DateTime.Now.ToString() + " ---");
+            _logClassControl.WriteLog("                                                                        --- SOFTWARE CLOSED AT : " + DateTime.Now.ToString() + " ---");
         }
 
         /// <summary>
@@ -99,14 +101,7 @@ namespace Ces_it.VIEW.HOME
         /// <param name="e"></param>
         private void HidePw_CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if ( HidePw_CheckBox.Checked == true )
-            {
-                Password_TextBox.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                Password_TextBox.UseSystemPasswordChar = true;
-            }
+            Password_TextBox.UseSystemPasswordChar = HidePw_CheckBox.Checked != true;
         }
 
         /// <summary>
@@ -118,16 +113,16 @@ namespace Ces_it.VIEW.HOME
         {
             try
             {
-                INTERFACE.SetttingsPage settingsForm = new INTERFACE.SetttingsPage
+                var settingsForm = new INTERFACE.SetttingsPage
                 {
 
                 };
                 settingsForm.Show();
-                logClassControl.WriteLog("[SUCCESS]-[HomePage]-[Settings_PictureBox_Click]-[TRY] : ");
+                _logClassControl.WriteLog("[SUCCESS]-[HomePage]-[Settings_PictureBox_Click]-[TRY] : ");
             }
             catch (Exception catchErrorOpenSettings)
             {
-                logClassControl.WriteLog("[ERROR]-[HomePage]-[Settings_PictureBox_Click]-[CATCH] : " + catchErrorOpenSettings);
+                _logClassControl.WriteLog("[ERROR]-[HomePage]-[Settings_PictureBox_Click]-[CATCH] : " + catchErrorOpenSettings);
             }
             
            
@@ -142,29 +137,39 @@ namespace Ces_it.VIEW.HOME
         /// <param name="e"></param>
         private void Connection_Button_Click(object sender, EventArgs e)
         {
-            if ( connectClassControl.TryConnect(User_TextBox.Text,Password_TextBox.Text) == true ) // Check if the User can be connected to the SoftWare
+            if ( _connectClassControl.TryConnect(User_TextBox.Text,Password_TextBox.Text) == true ) // Check if the User can be connected to the SoftWare
             {
-                switch ( userClassControl.GetCredential(User_TextBox.Text, Password_TextBox.Text)) // Switch used to show the interface according to the user's role
+                switch ( _userClassControl.GetCredential(User_TextBox.Text, Password_TextBox.Text)) // Switch used to show the interface according to the user's role
                 {
                     case 1: // ADMIN INTERFACE /----/
-                        MessageBox.Show("ADMIN CONNEXION");
                         try
                         {
                             INTERFACE.AdminPage adminForm = new INTERFACE.AdminPage
                             {
-
+                                typeInterface = Properties.ViewRsx.Resources.NameInterfaceAdmin
                             };
                             adminForm.Show();
-                            logClassControl.WriteLog("[SUCCESS]-[HomePage]-[Connection_Button_Click]-[TRY] : " + User_TextBox.Text + " : ");
+                            _logClassControl.WriteLog(Properties.ViewRsx.Resources.SucessHomePageConnectionAdminLog + User_TextBox.Text + " : ");
                         }
                         catch (Exception catchErrorOpenInterface)
                         {
-                            logClassControl.WriteLog("[ERROR]-[HomePage]-[Connection_Button_Click]-[CATCH] : " + User_TextBox.Text + " : ERROR : " + catchErrorOpenInterface);
+                            _logClassControl.WriteLog(Properties.ViewRsx.Resources.SucessHomePageConnectionAdminLog + User_TextBox.Text + " : ERROR : " + catchErrorOpenInterface);
                         }
-                        MessageBox.Show("CONNECTED");
                         break;
                     case 2:// COMMERCIAL INTERFACE /----/
-                        MessageBox.Show("COMMERCIAL CONNEXION");
+                        try
+                        {
+                            INTERFACE.AdminPage adminForm = new INTERFACE.AdminPage
+                            {
+                                typeInterface = Properties.ViewRsx.Resources.NameInterfaceCommercial
+                            };
+                            adminForm.Show();
+                            _logClassControl.WriteLog(Properties.ViewRsx.Resources.SucessHomePageConnectionCommercialLog + User_TextBox.Text + " : ");
+                        }
+                        catch (Exception catchErrorOpenInterface)
+                        {
+                            _logClassControl.WriteLog("[ERROR]-[HomePage]-[Connection_Button_Click]-[CATCH] : " + User_TextBox.Text + " : ERROR : " + catchErrorOpenInterface);
+                        }
                         break;
                     case 3:// LIVREUR INTERFACE /----/
                         MessageBox.Show("LIVREUR CONNEXION");
@@ -186,8 +191,9 @@ namespace Ces_it.VIEW.HOME
             }
             else
             {
-                logClassControl.WriteLog("[ERROR]-[HomePage]-[Connection_Button_Click]-[ELSE] : " + User_TextBox.Text + " : ERROR : " );
-                MessageBox.Show("ERROR");
+                _logClassControl.WriteLog(Properties.ViewRsx.Resources.ErrorSwitchCaseConnection + User_TextBox.Text + " : ERROR : " );
+                MessageBox.Show("Erreur de connexion MySql. \n" +
+                    "Consultez les logs pour plus d'informations","Erreur connexion MySql");
             }
             
         }

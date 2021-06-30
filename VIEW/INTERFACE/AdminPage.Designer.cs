@@ -29,6 +29,7 @@ namespace Ces_it.VIEW.INTERFACE
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPage));
             this.Reduce_PictureBox = new System.Windows.Forms.PictureBox();
             this.Refresh_PictureBox = new System.Windows.Forms.PictureBox();
@@ -36,10 +37,15 @@ namespace Ces_it.VIEW.INTERFACE
             this.Title_label = new System.Windows.Forms.Label();
             this.Title2_label = new System.Windows.Forms.Label();
             this.User_DataGridView = new System.Windows.Forms.DataGridView();
+            this.Admin_ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Role_ContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Delete_ContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TypeInterface_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Reduce_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Refresh_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Closed_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.User_DataGridView)).BeginInit();
+            this.Admin_ContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // Reduce_PictureBox
@@ -99,8 +105,10 @@ namespace Ces_it.VIEW.INTERFACE
             // 
             // User_DataGridView
             // 
-            this.User_DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.User_DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.User_DataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.User_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.User_DataGridView.ContextMenuStrip = this.Admin_ContextMenuStrip;
             this.User_DataGridView.Location = new System.Drawing.Point(79, 114);
             this.User_DataGridView.Name = "User_DataGridView";
             this.User_DataGridView.ReadOnly = true;
@@ -111,6 +119,39 @@ namespace Ces_it.VIEW.INTERFACE
             this.User_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.User_DataGridView.Size = new System.Drawing.Size(802, 379);
             this.User_DataGridView.TabIndex = 8;
+            this.User_DataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.User_DataGridView_CellContentDoubleClick);
+            // 
+            // Admin_ContextMenuStrip
+            // 
+            this.Admin_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Role_ContextMenuItem,
+            this.Delete_ContextMenuItem});
+            this.Admin_ContextMenuStrip.Name = "Admin_ContextMenuStrip";
+            this.Admin_ContextMenuStrip.Size = new System.Drawing.Size(130, 48);
+            this.Admin_ContextMenuStrip.Click += new System.EventHandler(this.Role_ContextMenuItem_Click);
+            // 
+            // Role_ContextMenuItem
+            // 
+            this.Role_ContextMenuItem.Name = "Role_ContextMenuItem";
+            this.Role_ContextMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.Role_ContextMenuItem.Text = "Rôle";
+            // 
+            // Delete_ContextMenuItem
+            // 
+            this.Delete_ContextMenuItem.Name = "Delete_ContextMenuItem";
+            this.Delete_ContextMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.Delete_ContextMenuItem.Text = "Supprimer";
+            // 
+            // TypeInterface_Label
+            // 
+            this.TypeInterface_Label.AutoSize = true;
+            this.TypeInterface_Label.BackColor = System.Drawing.Color.Transparent;
+            this.TypeInterface_Label.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TypeInterface_Label.Location = new System.Drawing.Point(12, 9);
+            this.TypeInterface_Label.Name = "TypeInterface_Label";
+            this.TypeInterface_Label.Size = new System.Drawing.Size(79, 20);
+            this.TypeInterface_Label.TabIndex = 9;
+            this.TypeInterface_Label.Text = "Interface ";
             // 
             // AdminPage
             // 
@@ -119,6 +160,7 @@ namespace Ces_it.VIEW.INTERFACE
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(983, 567);
+            this.Controls.Add(this.TypeInterface_Label);
             this.Controls.Add(this.User_DataGridView);
             this.Controls.Add(this.Title2_label);
             this.Controls.Add(this.Title_label);
@@ -136,6 +178,7 @@ namespace Ces_it.VIEW.INTERFACE
             ((System.ComponentModel.ISupportInitialize)(this.Refresh_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Closed_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.User_DataGridView)).EndInit();
+            this.Admin_ContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +192,10 @@ namespace Ces_it.VIEW.INTERFACE
         private System.Windows.Forms.Label Title_label;
         private System.Windows.Forms.Label Title2_label;
         private System.Windows.Forms.DataGridView User_DataGridView;
+        private System.Windows.Forms.ContextMenuStrip Admin_ContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem Role_ContextMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Del;
+        private System.Windows.Forms.Label TypeInterface_Label;
+        private System.Windows.Forms.ToolStripMenuItem Delete_ContextMenuItem;
     }
 }

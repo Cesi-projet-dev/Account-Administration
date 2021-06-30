@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ces'it</name>
+    </assembly>
+    <members>
+        <member name="M:Ces_it.CONTROLLER.DataBase.ConnectionController.TryConnect(System.String,System.String)">
+            <summary>
+            TryConnect will check if the user which want to access at the database can or can't use her.
+            </summary>
+            <param name="id"></param>
+            <param name="pw"></param>
+            <returns>Return boolean explicit answer YES OR NOT</returns>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.Design.DesignInterfaceController.ListFillDataGrid">
+            <summary>
+            Function used to fill the DatraGridView with an sqlDataAdapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.Design.DesignInterfaceController.AdapterFillComboBox">
+            <summary>
+            Function used to fill the ComboBox with an Adapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.LogController.CheckFileLog">
+            <summary>
+            Check if the directory "Log" exist in the project (Directory : bin)
+            </summary>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.LogController.CreationLogFile">
+            <summary>
+            Create Log directory if doesn't exist
+            </summary>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.LogController.WriteLog(System.String)">
+            <summary>
+            Function used to write a line of log in a text file
+            </summary>
+            <param name="textWritting"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.User.UserController.GetCredential(System.String,System.String)">
+            <summary>
+            Function used to get Credential number of the connected user
+            </summary>
+            <param name="id"></param>
+            <param name="pw"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.User.UserController.GetInfoUser(System.String)">
+            <summary>
+            Tuple used to Get all the info about a specific user 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.User.UserController.GetValueDefaultComboBox(System.String)">
+            <summary>
+            Function used to fill the ComboBox default value for a specific User
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.DataBase.ConnectionModel.ConnectionBdd">
+            <summary>
+            Path to the Database
+            </summary>
+            <returns>Return the query explicit string</returns>
+        </member>
+        <member name="M:Ces_it.MODEL.DataBase.ConnectionModel.ConnectUser">
+            <summary>
+            Return brut SQL Query to log in the database
+            </summary>
+            <returns></returns>       
+        </member>
+        <member name="M:Ces_it.MODEL.Design.DesignInterfaceModel.GetDataGridView">
+            <summary>
+            Function used to return an sql brut query
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.LogModel.FilePath">
+            <summary>
+            Return de pathFile of File
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.LogModel.FileDirectory">
+            <summary>
+            Return de pathFile of Directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetCredentialUser">
+            <summary>
+            Return Brut SQL Query to get Credntial number 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetNameUser">
+            <summary>
+            Return Brut SQL Query to get name of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetSurnameUser">
+            <summary>
+            Return Brut SQL Query to get Surname of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetEmailUser">
+            <summary>
+            Return Brut SQL Query to get Surname of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetPhoneUser">
+            <summary>
+            Return Brut SQL Query to get Phone of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetAgeUser">
+            <summary>
+            Return Brut SQL Query to get Age of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetAdressUser">
+            <summary>
+            Return Brut SQL Query to get Age of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetLastConnection">
+            <summary>
+            Return Brut SQL Query to get GetLastConnection of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetFirstConnection">
+            <summary>
+            Return Brut SQL Query to get FirstLogin of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetCredentialValue">
+            <summary>
+            Return Brut SQL Query to get Credential of User 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.Program.Main">
+            <summary>
+             The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Ces_it.Properties.ViewRsx.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.ErrorConnectionHomePage">
+            <summary>
+              Recherche une chaîne localisée semblable à [ERROR]-[HomePage]-[Connection_Button_Click]-[CATCH] :.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.ErrorSwitchCaseConnection">
+            <summary>
+              Recherche une chaîne localisée semblable à [ERROR]-[HomePage]-[Connection_Button_Click]-[ELSE]-[SWITCH/CASE] :.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.NameInterfaceAdmin">
+            <summary>
+              Recherche une chaîne localisée semblable à INTERFACE ADMIN.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.NameInterfaceClient">
+            <summary>
+              Recherche une chaîne localisée semblable à INTERFACE CLIENT .
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.NameInterfaceCommercial">
+            <summary>
+              Recherche une chaîne localisée semblable à INTERFACE COMMERCIAL.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.NameInterfaceLivreur">
+            <summary>
+              Recherche une chaîne localisée semblable à INTERFACE LIVREUR.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.NameInterfaceRestaurateur">
+            <summary>
+              Recherche une chaîne localisée semblable à INTERFACE RESTAURATEUR.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.NameTypeAdminConnexion">
+            <summary>
+              Recherche une chaîne localisée semblable à ADMIN CONNEXION.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.SucessHomePageConnectionAdminLog">
+            <summary>
+              Recherche une chaîne localisée semblable à [SUCCESS]-[HomePage]-[Connection_Button_Click]-[TRY]-[ADMIN_INTERFACE_OPEN] :.
+            </summary>
+        </member>
+        <member name="P:Ces_it.Properties.ViewRsx.Resources.SucessHomePageConnectionCommercialLog">
+            <summary>
+              Recherche une chaîne localisée semblable à [SUCCESS]-[HomePage]-[Connection_Button_Click]-[TRY]-[COMMERCIAL_INTERFACE_OPEN] :.
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.#ctor">
+            <summary>
+            Loading component of HomePage
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Move the Active Form
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.HomePage_Load(System.Object,System.EventArgs)">
+            <summary>
+            Function used while the windows is loading
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.Reduce_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to reduce the windows in the taskbar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.Refresh_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Refresh all this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.Closed_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to close the windows
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.HidePw_CheckBox_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Function used to hide password
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.Settings_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to open settingsPage
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.Connection_Button_Click(System.Object,System.EventArgs)">
+            <summary>
+            Used to connect to an interface
+            </summary>S
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Ces_it.VIEW.HOME.HomePage.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Ces_it.VIEW.HOME.HomePage.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Move the Active Form
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.AdminPage_Load(System.Object,System.EventArgs)">
+            <summary>
+            All action used while the form is loading
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.Closed_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to close this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.Refresh_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Refresh all composant about this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.Reduce_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to reduce the windows in the taskbar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Ces_it.VIEW.INTERFACE.AdminPage.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.SetttingsPage.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Move the Active Form
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.SetttingsPage.Closed_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to close this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.SetttingsPage.Refresh_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Refresh all composant about this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.SetttingsPage.Reduce_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to reduce the windows in the taskbar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Ces_it.VIEW.INTERFACE.SetttingsPage.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.SetttingsPage.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.SetttingsPage.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.#ctor">
+            <summary>
+            Loading component
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Move the Active Form
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.UserPage_Load(System.Object,System.EventArgs)">
+            <summary>
+            Function used when the form is loading ( Design and show data ) 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.Refresh_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Refresh all composant about this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.Reduce_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to reduce the windows in the taskbar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.Closed_PictureBox_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function used to close this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Ces_it.VIEW.INTERFACE.UserPage.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

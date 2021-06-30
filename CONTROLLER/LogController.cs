@@ -7,21 +7,21 @@ namespace Ces_it.CONTROLLER
 {
     class LogController
     {
-        private readonly MODEL.LogModel logClassModel = new MODEL.LogModel();
+        private readonly MODEL.LogModel _logClassModel = new MODEL.LogModel();
         /// <summary>
         /// Check if the directory "Log" exist in the project (Directory : bin)
         /// </summary>
         public void CheckFileLog ()
         {
         
-            if (Directory.Exists(logClassModel.FileDirectory()) == true)
+            if (Directory.Exists(_logClassModel.FileDirectory()) == true)
             {
                 CreationLogFile();
             }
             else
             {
-                Directory.CreateDirectory(logClassModel.FileDirectory());
-           
+                Directory.CreateDirectory(_logClassModel.FileDirectory());
+                CreationLogFile();
             }
 
 
@@ -34,19 +34,19 @@ namespace Ces_it.CONTROLLER
         {
             try
             {
-                if (File.Exists(logClassModel.FilePath()))
+                if (File.Exists(_logClassModel.FilePath()))
                 {
-                    File.AppendAllText(logClassModel.FilePath(), "\n \n CONNEXION SOFTWARE : " + DateTime.Now);
+                    File.AppendAllText(_logClassModel.FilePath(), "\n \n CONNEXION SOFTWARE : " + DateTime.Now);
                     
                 }
                 else
                 {
-                    using (FileStream fileStr = File.Create(logClassModel.FilePath()))
+                    using (FileStream fileStr = File.Create(_logClassModel.FilePath()))
                     {
                         Byte[] text = new UTF8Encoding(true).GetBytes("                                                                        --- LOG FILE CREATION : " + DateTime.Now.ToString() + " ---\n \n");
                         fileStr.Write(text, 0, text.Length);
                     }
-                    File.AppendAllText(logClassModel.FilePath(), "\n \n CONNEXION SOFTWARE : " + DateTime.Now);
+                    File.AppendAllText(_logClassModel.FilePath(), "\n \n     --->  CONNEXION SOFTWARE : " + DateTime.Now);
                 }
 
 
@@ -68,12 +68,12 @@ namespace Ces_it.CONTROLLER
         {
             try
             {
-                File.AppendAllText(logClassModel.FilePath(), "\n"+ textWritting + " --> " + DateTime.Now);
+                File.AppendAllText(_logClassModel.FilePath(), "\n"+ textWritting + " --> " + DateTime.Now);
                 return true;
             }
             catch ( Exception catchWriteLogError)
             {
-                File.AppendAllText(logClassModel.FilePath(), "\n" + "[ERROR]-[LogController]-[WirteLog]-[CATCH] : " + catchWriteLogError + " --> " + DateTime.Now);
+                File.AppendAllText(_logClassModel.FilePath(), "\n" + "[ERROR]-[LogController]-[WriteLog]-[CATCH] : " + catchWriteLogError + " --> " + DateTime.Now);
                 return false;
             }
         }
