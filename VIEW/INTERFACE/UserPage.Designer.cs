@@ -214,6 +214,7 @@ namespace Ces_it.VIEW.INTERFACE
             this.Credential_ComboBox.Name = "Credential_ComboBox";
             this.Credential_ComboBox.Size = new System.Drawing.Size(160, 23);
             this.Credential_ComboBox.TabIndex = 17;
+            this.Credential_ComboBox.TextChanged += new System.EventHandler(this.Credential_ComboBox_TextChanged);
             // 
             // UserPage
             // 
@@ -239,6 +240,7 @@ namespace Ces_it.VIEW.INTERFACE
             this.Controls.Add(this.Closed_PictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserPage";
             this.Load += new System.EventHandler(this.UserPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Reduce_PictureBox)).EndInit();

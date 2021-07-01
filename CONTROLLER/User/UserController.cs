@@ -227,5 +227,70 @@ namespace Ces_it.CONTROLLER.User
 
             return valueTYPE;
         }
+
+        /// <summary>
+        /// Function Used to get Value of Credential by ID.Credential
+        /// </summary>
+        /// <param name="nameType"></param>
+        /// <returns></returns>
+        public string GetTypeValueById(string nameType)
+        {
+            string id = "";
+
+            MySqlCommand sqlCommandGetTypeName = new MySqlCommand();
+            var connection = new MySqlConnection(_connectionModel.ConnectionBdd());
+            sqlCommandGetTypeName.Connection = connection;
+            sqlCommandGetTypeName.CommandType = CommandType.Text;
+            sqlCommandGetTypeName.CommandText = _userClassModel.GetCredentialValueById() ;
+            sqlCommandGetTypeName.Parameters.AddWithValue("@nameType", nameType);
+            connection.Open();
+            var reader = sqlCommandGetTypeName.ExecuteReader();
+            if (reader.HasRows)
+            {
+                var lecture = reader.Read();
+                while (lecture)
+                {
+                    id = reader.GetString(0);
+                    lecture = reader.Read();
+                }
+            }
+            reader.Close();
+            connection.Close();
+
+            return id;
+        }
+
+        /// <summary>
+        /// Get the Name Of city by User
+        /// </summary>
+        /// <returns></returns>
+        public string GetCityByUser(string idUser)
+        {
+            string specificCity = "";
+
+            MySqlCommand sqlCommandGetCityName = new MySqlCommand();
+            var connection = new MySqlConnection(_connectionModel.ConnectionBdd());
+            sqlCommandGetCityName.Connection = connection;
+            sqlCommandGetCityName.CommandType = CommandType.Text;
+            sqlCommandGetCityName.CommandText = _userClassModel.GetCityOfUser();
+            sqlCommandGetCityName.Parameters.AddWithValue("@id", idUser);
+            connection.Open();
+            var reader = sqlCommandGetCityName.ExecuteReader();
+            if (reader.HasRows)
+            {
+                var lecture = reader.Read();
+                while (lecture)
+                {
+                    specificCity = reader.GetString(0);
+                    lecture = reader.Read();
+                }
+            }
+            reader.Close();
+            connection.Close();
+
+            return specificCity;
+        }
+
+
     }
 }

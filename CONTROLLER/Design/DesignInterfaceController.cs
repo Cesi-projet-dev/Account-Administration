@@ -9,22 +9,23 @@ namespace Ces_it.CONTROLLER.Design
     class DesignInterfaceController
     {
         // VARIABLE DECLARATION --> 
+        
 
-
-        // CONTROLLER DECLARATION --> 
+        // MODEL DECLARATION --> 
         private readonly MODEL.DataBase.ConnectionModel _connectionModel = new MODEL.DataBase.ConnectionModel();
+        private readonly MODEL.Design.DesignInterfaceModel _designModel = new MODEL.Design.DesignInterfaceModel();
 
         /// <summary>
         /// Function used to fill the DatraGridView with an sqlDataAdapter
         /// </summary>
-        /// <returns></returns>
+        /// <returns>sqlDataAdapter</returns>
         public MySqlDataAdapter ListFillDataGrid()
         {
             MySqlCommand sqlCmdDataDataGrid = new MySqlCommand();
             var connection = new MySqlConnection(_connectionModel.ConnectionBdd());
             sqlCmdDataDataGrid.Connection = connection;
             sqlCmdDataDataGrid.CommandType = CommandType.Text;
-            sqlCmdDataDataGrid.CommandText = "SELECT ID,Login,Email,Phone FROM `tb_user`";
+            sqlCmdDataDataGrid.CommandText = _designModel.GetDataGridView();
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCmdDataDataGrid);
 
             return sqlDataAdapter;
@@ -33,17 +34,40 @@ namespace Ces_it.CONTROLLER.Design
         /// <summary>
         /// Function used to fill the ComboBox with an Adapter
         /// </summary>
-        /// <returns></returns>
+        /// <returns>sqlDataAdapter</returns>
         public MySqlDataAdapter AdapterFillComboBox()
         {
             MySqlCommand sqlCmdComboBox = new MySqlCommand();
             var connection = new MySqlConnection(_connectionModel.ConnectionBdd());
             sqlCmdComboBox.Connection = connection;
             sqlCmdComboBox.CommandType = CommandType.Text;
-            sqlCmdComboBox.CommandText = "SELECT tb_type.TYPE FROM `tb_user` JOIN tb_type ON tb_user.Credential = tb_type.ID ";
+            sqlCmdComboBox.CommandText = _designModel.GetFillCombobox();
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCmdComboBox);
 
             return sqlDataAdapter;
+        }
+
+        /// <summary>
+        /// Function used to 
+        /// </summary>
+        /// <returns></returns>
+        public bool UpdateTypeUser (string newCredential,string userID)
+        {
+            bool succesUpdateType = false;
+
+            MySqlCommand sqlUpdateTypeUser = new MySqlCommand();
+            var connection = new MySqlConnection(_connectionModel.ConnectionBdd());
+            sqlUpdateTypeUser.Connection = connection;
+            sqlUpdateTypeUser.CommandType = CommandType.Text;
+            sqlUpdateTypeUser.CommandText = _designModel.GetUpdateUser();  
+            sqlUpdateTypeUser.Parameters.AddWithValue("@id", userID);
+            sqlUpdateTypeUser.Parameters.AddWithValue("@nCredential", newCredential);
+
+            connection.Open();
+            sqlUpdateTypeUser.ExecuteNonQuery();
+            connection.Close();
+
+            return succesUpdateType;
         }
     }
 }

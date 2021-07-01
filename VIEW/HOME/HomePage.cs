@@ -172,13 +172,13 @@ namespace Ces_it.VIEW.HOME
                         }
                         break;
                     case 3:// LIVREUR INTERFACE /----/
-                        MessageBox.Show("LIVREUR CONNEXION");
+                        MessageBox.Show("Vous n'avez pas accès à la gestion des comptes", "INTERFACE LIVREUR");
                         break;
                     case 4:// RESTAURATEUR INTERFACE /----/
-                        MessageBox.Show("RESTAURATEUR CONNEXION");
+                        MessageBox.Show("Vous n'avez pas accès à la gestion des comptes", "INTERFACE RESTAURATEUR");
                         break;
                     case 5:// CLIENT INTERFACE /----/
-                        MessageBox.Show("CLIENT CONNEXION");
+                        MessageBox.Show("Vous n'avez pas accès à la gestion des comptes", "INTERFACE CLIENT");
                         break;
                     default:
                         MessageBox.Show("ERREUR CONNEXION");

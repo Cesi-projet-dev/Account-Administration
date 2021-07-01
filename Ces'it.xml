@@ -16,11 +16,17 @@
             <summary>
             Function used to fill the DatraGridView with an sqlDataAdapter
             </summary>
-            <returns></returns>
+            <returns>sqlDataAdapter</returns>
         </member>
         <member name="M:Ces_it.CONTROLLER.Design.DesignInterfaceController.AdapterFillComboBox">
             <summary>
             Function used to fill the ComboBox with an Adapter
+            </summary>
+            <returns>sqlDataAdapter</returns>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.Design.DesignInterfaceController.UpdateTypeUser(System.String,System.String)">
+            <summary>
+            Function used to 
             </summary>
             <returns></returns>
         </member>
@@ -62,6 +68,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Ces_it.CONTROLLER.User.UserController.GetTypeValueById(System.String)">
+            <summary>
+            Function Used to get Value of Credential by ID.Credential
+            </summary>
+            <param name="nameType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.CONTROLLER.User.UserController.GetCityByUser(System.String)">
+            <summary>
+            Get the Name Of city by User
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Ces_it.MODEL.DataBase.ConnectionModel.ConnectionBdd">
             <summary>
             Path to the Database
@@ -75,6 +94,18 @@
             <returns></returns>       
         </member>
         <member name="M:Ces_it.MODEL.Design.DesignInterfaceModel.GetDataGridView">
+            <summary>
+            Function used to return an sql brut query
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.Design.DesignInterfaceModel.GetFillCombobox">
+            <summary>
+            Function used to return an sql brut query
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ces_it.MODEL.Design.DesignInterfaceModel.GetUpdateUser">
             <summary>
             Function used to return an sql brut query
             </summary>
@@ -96,61 +127,73 @@
             <summary>
             Return Brut SQL Query to get Credntial number 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryCredential </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetNameUser">
             <summary>
             Return Brut SQL Query to get name of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryNameUser </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetSurnameUser">
             <summary>
             Return Brut SQL Query to get Surname of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryNameUser </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetEmailUser">
             <summary>
             Return Brut SQL Query to get Surname of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryNameEmail </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetPhoneUser">
             <summary>
             Return Brut SQL Query to get Phone of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryNameEmail </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetAgeUser">
             <summary>
             Return Brut SQL Query to get Age of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryAgeUser </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetAdressUser">
             <summary>
             Return Brut SQL Query to get Age of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryGetAdressUser </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetLastConnection">
             <summary>
             Return Brut SQL Query to get GetLastConnection of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryLastConnection </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetFirstConnection">
             <summary>
             Return Brut SQL Query to get FirstLogin of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryFirstConnection </returns>
         </member>
         <member name="M:Ces_it.MODEL.User.UserModel.GetCredentialValue">
             <summary>
             Return Brut SQL Query to get Credential of User 
             </summary>
-            <returns></returns>
+            <returns> Return sqlQueryGetCredentialValue </returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetCredentialValueById">
+            <summary>
+            Return Brut SQL Query to get Credential of User by ID
+            </summary>
+            <returns> Return sqlQueryGetCredentialValueById </returns>
+        </member>
+        <member name="M:Ces_it.MODEL.User.UserModel.GetCityOfUser">
+            <summary>
+            Return Brut SQL Query to get City of User 
+            </summary>
+            <returns> Return sqlQueryGetCityOfUser </returns>
         </member>
         <member name="M:Ces_it.Program.Main">
             <summary>
@@ -300,6 +343,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.#ctor">
+            <summary>
+            Loading component AdminPage
+            </summary>
+        </member>
         <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.WndProc(System.Windows.Forms.Message@)">
             <summary>
             Move the Active Form
@@ -330,6 +378,20 @@
         <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.Reduce_PictureBox_Click(System.Object,System.EventArgs)">
             <summary>
             Function used to reduce the windows in the taskbar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.User_DataGridView_CellContentDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            Function used when the user is douleclicking on a specific person in the DataGridView
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.AdminPage.Delete_ContextMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Specific user is deleted
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -430,6 +492,13 @@
         <member name="M:Ces_it.VIEW.INTERFACE.UserPage.Closed_PictureBox_Click(System.Object,System.EventArgs)">
             <summary>
             Function used to close this window
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ces_it.VIEW.INTERFACE.UserPage.Credential_ComboBox_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Function used when the text in the ComboBox is changing, means the TYPE of the user was changed by the Admin
             </summary>
             <param name="sender"></param>
             <param name="e"></param>

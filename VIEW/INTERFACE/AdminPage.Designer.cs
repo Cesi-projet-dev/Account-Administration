@@ -39,6 +39,11 @@ namespace Ces_it.VIEW.INTERFACE
             this.User_DataGridView = new System.Windows.Forms.DataGridView();
             this.Admin_ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Role_ContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdminRoleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CommercialRoleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RestaurateurRoleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LivreurRoleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientRoleMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Delete_ContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TypeInterface_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Reduce_PictureBox)).BeginInit();
@@ -128,19 +133,56 @@ namespace Ces_it.VIEW.INTERFACE
             this.Delete_ContextMenuItem});
             this.Admin_ContextMenuStrip.Name = "Admin_ContextMenuStrip";
             this.Admin_ContextMenuStrip.Size = new System.Drawing.Size(130, 48);
-            this.Admin_ContextMenuStrip.Click += new System.EventHandler(this.Role_ContextMenuItem_Click);
             // 
             // Role_ContextMenuItem
             // 
+            this.Role_ContextMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AdminRoleMenuItem,
+            this.CommercialRoleMenuItem,
+            this.RestaurateurRoleMenuItem,
+            this.LivreurRoleMenuItem,
+            this.ClientRoleMenuItem});
             this.Role_ContextMenuItem.Name = "Role_ContextMenuItem";
             this.Role_ContextMenuItem.Size = new System.Drawing.Size(129, 22);
             this.Role_ContextMenuItem.Text = "Rôle";
+            this.Role_ContextMenuItem.Click += new System.EventHandler(this.Role_ContextMenuItem_Click);
+            // 
+            // AdminRoleMenuItem
+            // 
+            this.AdminRoleMenuItem.Name = "AdminRoleMenuItem";
+            this.AdminRoleMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.AdminRoleMenuItem.Text = "Admin";
+            // 
+            // CommercialRoleMenuItem
+            // 
+            this.CommercialRoleMenuItem.Name = "CommercialRoleMenuItem";
+            this.CommercialRoleMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.CommercialRoleMenuItem.Text = "Commercial";
+            // 
+            // RestaurateurRoleMenuItem
+            // 
+            this.RestaurateurRoleMenuItem.Name = "RestaurateurRoleMenuItem";
+            this.RestaurateurRoleMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.RestaurateurRoleMenuItem.Text = "Restaurateur";
+            // 
+            // LivreurRoleMenuItem
+            // 
+            this.LivreurRoleMenuItem.Name = "LivreurRoleMenuItem";
+            this.LivreurRoleMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.LivreurRoleMenuItem.Text = "Livreur";
+            // 
+            // ClientRoleMenuItem
+            // 
+            this.ClientRoleMenuItem.Name = "ClientRoleMenuItem";
+            this.ClientRoleMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.ClientRoleMenuItem.Text = "Client";
             // 
             // Delete_ContextMenuItem
             // 
             this.Delete_ContextMenuItem.Name = "Delete_ContextMenuItem";
             this.Delete_ContextMenuItem.Size = new System.Drawing.Size(129, 22);
             this.Delete_ContextMenuItem.Text = "Supprimer";
+            this.Delete_ContextMenuItem.Click += new System.EventHandler(this.Delete_ContextMenuItem_Click);
             // 
             // TypeInterface_Label
             // 
@@ -197,5 +239,10 @@ namespace Ces_it.VIEW.INTERFACE
         private System.Windows.Forms.ToolStripMenuItem Del;
         private System.Windows.Forms.Label TypeInterface_Label;
         private System.Windows.Forms.ToolStripMenuItem Delete_ContextMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AdminRoleMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CommercialRoleMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RestaurateurRoleMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LivreurRoleMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClientRoleMenuItem;
     }
 }

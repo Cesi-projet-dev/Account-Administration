@@ -15,6 +15,7 @@ namespace Ces_it.VIEW.INTERFACE
         private const int Htclient = 1;
         private const int Htcaption = 2;
         public string IdUser;
+        private int tempComboBox = 1;
 
         // CONTROLLER DECLARATION --> 
         private readonly CONTROLLER.LogController _logClassControl = new CONTROLLER.LogController();
@@ -60,6 +61,7 @@ namespace Ces_it.VIEW.INTERFACE
             TitleAge_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item5.ToString();
             TitleAdress_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item6.ToString();
             LastLoginTile_Label.Text += " " + _userClassControl.GetInfoUser(IdUser).Item7.ToString();
+            TitleCity_Label.Text += " " + _userClassControl.GetCityByUser(IdUser).ToString();
 
             DataTable dt = new DataTable();
             _designClassControl.AdapterFillComboBox().Fill(dt);
@@ -72,6 +74,7 @@ namespace Ces_it.VIEW.INTERFACE
             Credential_ComboBox.DataSource = dt;
             Credential_ComboBox.DisplayMember = "TYPE";
             Credential_ComboBox.ValueMember = "TYPE";
+            tempComboBox = 2;
 
 
         }
@@ -104,6 +107,26 @@ namespace Ces_it.VIEW.INTERFACE
         private void Closed_PictureBox_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        /// <summary>
+        /// Function used when the text in the ComboBox is changing, means the TYPE of the user was changed by the Admin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Credential_ComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (tempComboBox == 2)
+            {
+                _designClassControl.UpdateTypeUser(_userClassControl.GetTypeValueById(Credential_ComboBox.Text), IdUser);
+                Credential_ComboBox.Refresh();
+
+            }
+            else
+            {
+
+            }
+            
         }
     }
 }

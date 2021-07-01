@@ -23,6 +23,9 @@ namespace Ces_it.VIEW.INTERFACE
         private readonly CONTROLLER.User.UserController _userClassControl = new CONTROLLER.User.UserController();
         private readonly CONTROLLER.Design.DesignInterfaceController _designClassControl = new CONTROLLER.Design.DesignInterfaceController();
    
+        /// <summary>
+        /// Loading component AdminPage
+        /// </summary>
         public AdminPage()
         {
             InitializeComponent();
@@ -99,6 +102,11 @@ namespace Ces_it.VIEW.INTERFACE
 
         #endregion
 
+        /// <summary>
+        /// Function used when the user is douleclicking on a specific person in the DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void User_DataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             UserPage userPage = new UserPage
@@ -109,9 +117,20 @@ namespace Ces_it.VIEW.INTERFACE
             userPage.Show();
          
         }
+
         private void Role_ContextMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("TEST : " );
+        }
+
+        /// <summary>
+        /// Specific user is deleted
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Delete_ContextMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("DELETE USER : \n\n" + User_DataGridView.Rows[0].Cells[0].Value + " OU ALORS \n\n" + User_DataGridView.CurrentRow.Cells[0].Value.ToString()); ;
         }
     }
     
